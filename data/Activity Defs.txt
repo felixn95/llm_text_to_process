@@ -1,0 +1,12 @@
+Considering the context of Business Process Management and process modelling and the following definitions:
+
+Activity:
+An activity is a unit of work that can be performed by an individual or a group. It is a specific step in the process.
+
+Consider the following process:
+"""
+{text}
+"""
+
+Q:  lists the activities of the process
+A:

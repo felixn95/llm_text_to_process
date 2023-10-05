@@ -1,0 +1,69 @@
+Great, now do the same for this:
+
+In the following there will be business process model description in tokens. 
+
+In the same sequence of the tokens, ther are also the annotations for the tokens, here is an explanation about the tags: 
+O: An O tag indicates that a token belongs to no chunk.
+B-Actor: This tag indicates the beginning of an Actor chunk.
+I-Actor: This tag indicates that the tag is inside an Actor chunk.
+B-Activity: This tag indicates the beginning of an Activity chunk.
+I-Activity: This tag indicates that the tag is inside an Activity chunk.
+B-Activity Data: This tag indicates the beginning of an Activity Data chunk.
+I-Activity Data: This tag indicates that the tag is inside an Activity Data chunk.
+B-Further Specification: This tag indicates the beginning of a Further Specification chunk.
+I-Further Specification: This tag indicates that the tag is inside a Further Specification chunk.
+B-XOR Gateway: This tag indicates the beginning of a XOR Gateway chunk.
+I-XOR Gateway: This tag indicates that the tag is inside a XOR Gateway chunk.
+B-Condition Specification: This tag indicates the beginning of a Condition Specification chunk.
+I-Condition Specification: This tag indicates that the tag is inside a Condition Specification chunk.
+B-AND Gateway: This tag indicates the beginning of an AND Gateway chunk.
+I-AND Gateway: This tag indicates that the tag is inside an AND Gateway chunk.
+
+tokens:
+{tokens}
+tags:
+{ner_tags}
+
+Please extract all Actitvies and all actors out of this process for me. Please extract them as arrays. There is no need to write code or something, just give me the extracted arrays. 
+
+Please help me to prepare a list of prompts using python. I have an excel with a column called "document name", "tokens" and a column "ner_tags". I need to get a new xlsx with only the columns "document name" and "prompts". 
+
+The propmts shall always look as following, with the content of tokens and ner tags as a string for each row: 
+
+## Start of the promt
+Great, now do the same for this:
+
+In the following there will be business process model description in tokens. 
+
+In the same sequence of the tokens, ther are also the annotations for the tokens, here is an explanation about the tags: 
+O: An O tag indicates that a token belongs to no chunk.
+B-Actor: This tag indicates the beginning of an Actor chunk.
+I-Actor: This tag indicates that the tag is inside an Actor chunk.
+B-Activity: This tag indicates the beginning of an Activity chunk.
+I-Activity: This tag indicates that the tag is inside an Activity chunk.
+B-Activity Data: This tag indicates the beginning of an Activity Data chunk.
+I-Activity Data: This tag indicates that the tag is inside an Activity Data chunk.
+B-Further Specification: This tag indicates the beginning of a Further Specification chunk.
+I-Further Specification: This tag indicates that the tag is inside a Further Specification chunk.
+B-XOR Gateway: This tag indicates the beginning of a XOR Gateway chunk.
+I-XOR Gateway: This tag indicates that the tag is inside a XOR Gateway chunk.
+B-Condition Specification: This tag indicates the beginning of a Condition Specification chunk.
+I-Condition Specification: This tag indicates that the tag is inside a Condition Specification chunk.
+B-AND Gateway: This tag indicates the beginning of an AND Gateway chunk.
+I-AND Gateway: This tag indicates that the tag is inside an AND Gateway chunk.
+
+tokens:
+{tokens}
+tags:
+{ner_tags}
+
+Please extract all Actitvies and all actors out of this process for me. Please extract them as arrays. There is no need to write code or something, just give me the extracted arrays. 
+## end of the prompt
+
+
+
+[
+
+
+
+

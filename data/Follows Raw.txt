@@ -1,0 +1,7 @@
+Consider the following description of a process model:
+"""
+{text}
+"""
+
+Q: Considering the list of process activity described in the text, does '{act1}' activity immediately follow '{act2}' activity in the process model?
+A:

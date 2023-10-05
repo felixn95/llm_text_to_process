@@ -1,0 +1,24 @@
+Considering the context of Business Process Management and process modelling and the following definitions:
+
+Activity:
+An activity is a unit of work that can be performed by an individual or a group. It is a specific step in the process.
+
+Process:
+A process is a sequence of activities completed to achieve an outcome.
+
+Flow:
+A flow object captures the execution flow among the process activities. It is a directional connector between activities in a Process. It defines the activities’ execution order.
+
+Sequence Flow:
+A Sequence Flow object defines a fixed sequential relation between two activities. Each Flow has only one source and only one target. The direction of the flow (from source to target) determines the execution order between two Activities. A sequence relation is an ordered temporal relation between a source activity and the activity that immediately follow it in the process model.
+
+Process Model:
+A process model is a model of a process in terms of process activities and their sequence flow relations.
+
+Consider the following description of a process model:
+"""
+{text}
+"""
+
+Q: Considering the list of process activity described in the text, does '{act1}' activity immediately follow '{act2}' activity in the process model?
+A:

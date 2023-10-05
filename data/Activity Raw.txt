@@ -1,0 +1,7 @@
+Consider the following process:
+"""
+{text}
+"""
+
+Q:  lists the activities of the process
+A:

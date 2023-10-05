@@ -1,0 +1,7 @@
+Consider the following description of a process model:
+"""
+{text}
+"""
+
+Q: Who is the process participant performing  '{act2}' activity in the process model?
+A:

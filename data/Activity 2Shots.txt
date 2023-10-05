@@ -1,0 +1,91 @@
+###
+Consider the following process:
+"""
+The customer data is received by customer service and based on this data a customer data object is entered into the CRM system.
+After customer data has been entered it should then be compared with the internal customer data base and checked for completeness and plausibility.
+In case of any errors these should be corrected on the basis of a simple error list.
+The comparison of data is done to prevent individual customer data being stored multiple times.
+In case the customer does not exist in the customer data base, a new customer object is being created which will remain the data object of interest during the rest of the process flow.
+This object consists of data elements such as the customer's name and address and the assigned power gauge.
+The generated customer object is then used, in combination with other customer data to prepare the contract documents for the power supplier switch (including data such as bank connection, information on the selected rate, requested date of switch-over).
+In the following an automated check of the contract documents is carried out within the CIS (customer information system) in order to confirm their successful generation.
+In case of a negative response, i.e. the contract documents are not (or incorrectly) generated, the causing issues are being analyzed and resolved.
+Subsequently the contract documents are generated once again.
+In case of a positive response a confirmation document is sent out to the customer stating that the switch-over to the new supplier can be executed.
+A request to the grid operator is automatically sent out by the CIS.
+It puts the question whether the customer may be supplied by the selected supplier in the future.
+The switch-over request is checked by the grid operator for supplier concurrence, and the grid operator transmits a response comment.
+In the case of supplier concurrence the grid operator would inform all involved suppliers and demand the resolution of the conflict.
+The grid operator communicates with the old supplier and carries out the termination of the sales agreement between the customer and the old supplier (i.e. the customer service (of the new supplier) does not have to interact with the old supplier regarding termination).
+If there are not any objections by the grid operator (i.e. no supplier concurrence), customer service creates a CIS contract.
+The customer then has the chance to check the contract details and based on this check may decide to either withdraw from the switch contract or confirm it.
+Depending on the customer's acceptance/rejection the process flow at customer service either ends (in case of withdrawal) or continues (in case of a confirmation).
+An additional constraint is that the customer can only withdraw from the offered contract within 7 days after the 7th day the contract will be regarded as accepted and the process continues.
+The confirmation message by the customer is therefore not absolutely necessary (as it will count as accepted after 7 days in any way) but it can speed up the switch process.
+On the switch-date, but no later than 10 days after power supply has begun, the grid operator transmits the power meter data to the customer service and the old supplier via messages containing a services consumption report.
+At the same time, the grid operator computes the final billing based on the meter data and sends it to the old supplier.
+Likewise the old supplier creates and sends the final billing to the customer.
+"""
+
+Q:  lists the activities of the process
+A:
+- 'receive customer data'
+- 'enter customer data object into the CRM system'
+- 'compare customer data with the internal customer data base'
+- 'check for completeness and plausibility'
+- 'correct errors'
+- 'create a new customer object'
+- 'prepare the contract documents for the power supplier switch'
+- 'check contract documents'
+- 'analyse causing issues'
+- 'resolve causing issues'
+- 'generate contract documents'
+- 'send out confirmation document'
+- 'send out request'
+- 'check switch-over request'
+- 'transmit response comment'
+- 'inform involved supplier'
+- 'demand resolution of conflict'
+- 'communicate with the old supplier'
+- 'carry out the termination of the sales agreement'
+- 'create CIS contract'
+- 'check contract details'
+- 'withdraw switch contract'
+- 'confirm switch contract'
+- 'transmit power meter data'
+- 'compute final billing'
+- 'send final billing'
+- 'create final billing'
+- 'send final billing'
+###
+
+###
+Consider the following process:
+"""
+The SP/PU/GO request changes of the MPO or the MPO himself causes a change.
+The MPO reviews the change request.
+The MPO rejects the change of the measuring point by the SP/PU/GO or the MPO confirmes the request of the SP/PU/GO.
+The MPO performs the measuring point change.
+The MPO reports the implementation to the SP/PU/GO or notifies the SP/PU/GO about the failure of the changes.
+"""
+
+Q:  lists the activities of the process
+A:
+- 'request change'
+- 'cause change'
+- 'review change request'
+- 'reject the change of the measuring point by the SP/PU/GO'
+- 'confirm the request of the SP/PU/GO'
+- 'perform measuring point change'
+- 'report implementation'
+- 'notify about the failure of the change'
+###
+
+###
+Consider the following process:
+"""
+{text}
+"""
+
+Q:  lists the activities of the process
+A:

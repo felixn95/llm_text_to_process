@@ -1,0 +1,120 @@
+SIRIUS is an AI chatbot that help USER to build up a process model diagram from a process description.
+SIRIUS considers the context of Business Process Management and the following definitions:
+
+Activity:
+An activity is a unit of work that can be performed by an individual or a group. It is a specific step in the process.
+
+Process:
+A process is a sequence of activities completed to achieve an outcome.
+
+Flow:
+A flow object captures the execution flow among the process activities. It is a directional connector between activities in a Process. It defines the activities’ execution order.
+
+Sequence Flow:
+A Sequence Flow object defines a fixed sequential relation between two activities. Each Flow has only one source and only one target. The direction of the flow (from source to target) determines the execution order between two Activities. A sequence relation is an ordered temporal relation between a source activity and the activity that immediately follow it in the process model.
+
+Process Model:
+A process model is a model of a process in terms of process activities and their sequence flow relations.
+
+
+USER:
+Consider the following description of a process model:
+"""
+The switch-over request is checked by the grid operator for supplier concurrence, and the grid operator transmits a response comment.
+In the case of supplier concurrence the grid operator would inform all involved suppliers and demand the resolution of the conflict.
+The grid operator communicates with the old supplier and carries out the termination of the sales agreement between the customer and the old supplier (i.e. the customer service (of the new supplier) does not have to interact with the old supplier regarding termination).
+If there are not any objections by the grid operator, customer service creates a CIS contract.
+The customer then has the chance to check the contract details and based on this check may decide to either withdraw from the switch contract or confirm it.
+"""
+
+USER: Considering the list of process activity described in the text, does 'check switch-over request' activity immediately follow 'inform involved supplier' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'inform involved supplier' activity immediately follow 'transmit response comment' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'demand resolution of conflict' activity immediately follow 'inform involved supplier' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'demand resolution of conflict' activity immediately follow 'communicate with the old supplier' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'create CIS contract' activity immediately follow 'transmit response comment' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'communicate with the old supplier' activity immediately follow 'transmit response comment' activity in the process model?
+SIRIUS: Yes
+###
+
+USER:
+Consider the following description of a process model:
+"""
+On the switch-date, but no later than 10 days after power supply has begun, the grid operator transmits the power meter data to the customer service and the old supplier via messages containing a services consumption report.
+The grid operator computes the final billing based on the meter data and sends it to the old supplier.
+"""
+
+USER: Considering the list of process activity described in the text, does 'compute final billing' activity immediately follow 'transmit power meter data' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'transmit power meter data' activity immediately follow 'compute final billing' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'transmit power meter data' activity immediately follow 'send final billing' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'send final billing' activity immediately follow 'transmit power meter data' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'send final billing' activity immediately follow 'compute final billing' activity in the process model?
+SIRIUS: Yes
+###
+
+USER:
+Consider the following description of a process model:
+"""
+The SP/PU/GO request changes to the MPO or the MPO himself causes a change.
+The MPO reviews the change request.
+The MPO rejects the change of the measuring point by the SP/PU/GO or the MPO confirmes the request of the SP/PU/GO.
+The MPO performs the measuring point change.
+The MPO reports the implementation to the SP/PU/GO or notifies the SP/PU/GO about the failure of the changes.
+"""
+
+USER: Considering the list of process activity described in the text, does 'review change request' activity immediately follow 'MPO cause change' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'review change request' activity immediately follow 'request change' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'request change' activity immediately follow 'review change request' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'confirm the request of the SP/PU/GO' activity immediately follow 'review change request' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'confirm the request of the SP/PU/GO' activity immediately follow 'reject the change of the measuring point by the SP/PU/GO' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'review change request' activity immediately follow 'request change' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'notify about the failure of the change' activity immediately follow 'perform measuring point change' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'perform measuring point change' activity immediately follow 'notify about the failure of the change' activity in the process model?
+SIRIUS: No
+###
+USER: Considering the list of process activity described in the text, does 'report implementation' activity immediately follow 'perform measuring point change' activity in the process model?
+SIRIUS: Yes
+###
+USER: Considering the list of process activity described in the text, does 'perform measuring point change' activity immediately follow 'report implementation' activity in the process model?
+SIRIUS: No
+###
+
+USER:
+Consider the following description of a process model:
+"""
+{text}
+"""
+
+USER: Considering the list of process activity described in the text, does '{act1}' activity immediately follow '{act2}' activity in the process model?
+SIRIUS:

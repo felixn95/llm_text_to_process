@@ -1,0 +1,15 @@
+Considering the context of Business Process Management and process modelling and the following definitions:
+
+Process Participant:
+A process participant is any individual or entity that participates in a business process. This could include individuals who initiate the process, those who respond to it, or those who are affected by it.
+
+Activity:
+An activity is a unit of work that can be performed by an individual or a group. It is a specific step in the process.
+
+Given the following text:
+"""
+{text}
+"""
+
+Q:  Who is the process participant performing  '{act2}' activity in the process model?
+A:
