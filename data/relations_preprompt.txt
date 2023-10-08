@@ -1,0 +1,74 @@
+Assume the following for the definition of Workflow Models: A Workflow Model consists of the following node types: Task, XOR-Split, XOR-Join, Start-Node, End-Node. Each node of type Task has a label. Nodes of type Start-Node have exactly one successor node and no predecessor node. Nodes of type End-Node have exactly one predecessor node and no successor node. Nodes of type Task have exactly one successor node and exactly one predecessor node. Nodes of type XOR-Split have one predecessor node and two successor nodes (successor_true, successor_false) and a boolean condition. The successor_true is executed if the condition is true, and the successor_false is executed if the condition is false. Nodes of type XOR-Join have two predecessor nodes (predecessor_true, predecessor_false) and one successor node. The successor gets active after one predecessor is executed. All node types except for start-node and end-node are optional. If a process contains a xor-split node, it must also contain a xor-join node. Please never forget to close a xor-split with a xor-join.
+
+Here is an example: 
+The MPON sends the dismissal to the MPOO. The MPOO reviews the dismissal. The MPOO opposes the dismissal of MPON or the MPOO confirmes the dismissal of the MPON.
+
+{ "Activities": [
+{"id": "T1", "label": "sends the dismissal"},
+{"id": "T2", "label": "reviews dismissal"},
+{"id": "T3", "label": "opposes the dismissal"},
+{"id": "T4", "label": "confirms the dismissal"}
+]}
+{
+  "WorkflowModel": {
+    "start-Node": {
+      "id": "S1"
+    },
+    "end-node": {
+      "id": "E1"
+    },
+    "tasks": [
+      {
+        "id": "T1",
+        "label": "sends the dismissal",
+        "successor": "XS1",
+        "predecessor": "S1"
+      },
+      {
+        "id": "T2",
+        "label": "reviews dismissal",
+        "successor": "XS1",
+        "predecessor": "T1"
+      },
+      {
+        "id": "T3",
+        "label": "opposes the dismissal",
+        "successor": "XJ1",
+        "predecessor": "XS1"
+      },
+      {
+        "id": "T4",
+        "label": "confirms the dismissal",
+        "successor": "XJ1",
+        "predecessor": "XS1"
+      }
+    ],
+    "gateways": [
+      {
+        "type": "XOR-Split",
+        "id": "XS1",
+        "condition": "opposed or confirmed?",
+        "successor_true": "XJ1",
+        "successor_false": "E1",
+        "predecessor": "T2"
+      },
+      {
+        "type": "XOR-Join",
+        "id": "XJ1",
+        "predecessor_true": "T3",
+        "predecessor_false": "T4",
+        "successor": "E1"
+      }
+    ]
+  }
+}
+
+Use the below listed process and its activities to create a workflow model for the scenario:
+A Customer places an order. Then the Warehouse checks the payment of the order. If the payment is successful, the warehouse ships the order. Otherwise the warehouse rejects the order.
+
+{ "Activities": [
+{"id": "T1", "label": "places an order"},
+{"id": "T2", "label": "checks for payment"},
+{"id": "T3", "label": "ships the order"},
+{"id": "T4", "label": "rejects the order"}
+]}
