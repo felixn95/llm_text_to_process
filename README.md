@@ -2,9 +2,9 @@
 
 Prototypical approach to generate a process model workflow and diagram from a plain process description. 
 
-The workflow extractions happen in three sequential steps (Activities -> Actors -> Workflow) using the llam2 model (https://huggingface.co/meta-llama/Llama-2-70b) and/or gpt-3.5-turbo from OPENAI (https://platform.openai.com/docs/models/gpt-3-5). 
+The workflow extractions happen in three sequential steps (Activities -> Actors -> Workflow) using the llama2 model (https://huggingface.co/meta-llama/Llama-2-70b) and/or gpt-3.5-turbo from OPENAI (https://platform.openai.com/docs/models/gpt-3-5). 
 
-The visualization (workflow -> model) is a deterministic approach using the process piper library to draw BPMN-diagrams (https://github.com/csgoh/processpiper/). 
+The visualization (workflow -> model) is a deterministic approach using the process piper library to draw BPMN diagrams (https://github.com/csgoh/processpiper/). 
 
 After requirements are installed, the app can be started (location is the root folder):
 
