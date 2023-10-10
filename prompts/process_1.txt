@@ -1,0 +1,1 @@
+A Customer places an order. Then the Warehouse checks the payment of the order. If the payment is successful, the warehouse ships the order. Otherwise the warehouse rejects the order.

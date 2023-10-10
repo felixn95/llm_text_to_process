@@ -1,0 +1,74 @@
+{
+    "end_node": {
+        "id": "E1",
+	"actor_id": "W1",
+        "actor_label": "The Warehouse"
+    },
+    "gateways": [
+        {
+            "condition": "payment is successful?",
+            "id": "XS1",
+            "predecessor": "T2",
+            "predecessor_false": null,
+            "predecessor_true": null,
+            "successor": null,
+            "successor_false": "T4",
+            "successor_true": "T3",
+            "type": "XOR-Split",
+	    "actor_id": "W1",
+            "actor_label": "The Warehouse"	
+        },
+        {
+            "condition": null,
+            "id": "XJ1",
+            "predecessor": null,
+            "predecessor_false": "T4",
+            "predecessor_true": "T3",
+            "successor": "E1",
+            "successor_false": null,
+            "successor_true": null,
+            "type": "XOR-Join",
+	        "actor_id": "W1",
+            "actor_label": "The Warehouse"
+        }
+    ],
+    "start_node": {
+        "id": "S1",
+	    "actor_id": "C1",
+        "actor_label": "A Customer"
+    },
+    "tasks": [
+        {
+            "actor_id": "C1",
+            "actor_label": "A Customer",
+            "id": "T1",
+            "label": "places an order",
+            "predecessor": "S1",
+            "successor": "T2"
+        },
+        {
+            "actor_id": "W1",
+            "actor_label": "The Warehouse",
+            "id": "T2",
+            "label": "checks the payment",
+            "predecessor": "T1",
+            "successor": "XS1"
+        },
+        {
+            "actor_id": "W1",
+            "actor_label": "The Warehouse",
+            "id": "T3",
+            "label": "ships the order",
+            "predecessor": "XS1",
+            "successor": "XJ1"
+        },
+        {
+            "actor_id": "W1",
+            "actor_label": "The Warehouse",
+            "id": "T4",
+            "label": "rejects the order",
+            "predecessor": "XS1",
+            "successor": "XJ1"
+        }
+    ]
+}

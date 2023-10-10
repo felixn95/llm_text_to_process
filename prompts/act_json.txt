@@ -1,0 +1,1 @@
+[{"id": "T1", "label": "places an order", "actor_label": "A Customer", "actor_id": "C1"}, {"id": "T2", "label": "checks the payment", "actor_label": "The Warehouse", "actor_id": "W1"}, {"id": "T3", "label": "ships the order", "actor_label": "The Warehouse", "actor_id": "W1"}, {"id": "T4", "label": "rejects the order", "actor_label": "The Warehouse", "actor_id": "W1"}]

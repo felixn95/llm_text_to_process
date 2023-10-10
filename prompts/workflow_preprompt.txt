@@ -1,0 +1,84 @@
+Assume the following for the definition of Workflow Models: A Workflow Model consists of the following node types: Task, XOR-Split, XOR-Join, Start-Node, End-Node. Nodes of type Start-Node have exactly one successor node and no predecessor node. Nodes of type End-Node have exactly one predecessor node and no successor node. Nodes of type Task have exactly one successor node and exactly one predecessor node. Tasks can be followed by gateways (XOR-Split or XOR-Join) or by other tasks. Nodes of type XOR-Split have one predecessor node and two successor nodes (successor_true, successor_false) and a boolean condition. Nodes of type XOR-Join have two predecessor nodes (predecessor_true, predecessor_false) and one successor node. If a process contains a XOR-Split gateway, it must also contain a XOR-Join gateway. 
+### instruction: 
+The MPON sends the dismissal to the MPOO. The MPOO reviews the dismissal. If the dismissal is invalid, the MPOO opposes the dismissal. Otherwise the MPOO confirmes the dismissal.
+
+{ "Activities": [
+{"id": "T1", "label": "sends the dismissal", "actor_label": "The MPON", "actor_id": "A1"},
+{"id": "T2", "label": "reviews dismissal", "actor-label": "The MPO", "actor-id": "A2"},
+{"id": "T3", "label": "opposes the dismissal", "actor-label": "The MPO", "actor-id": "A2"},
+{"id": "T4", "label": "confirms the dismissal", "actor-label": "The MPO", "actor-id": "A2"}
+]}
+Please provide the plain JSON output following the template and guidelines. and do not add any
+information that is not described here and do not add any explanations, only show the plain JSON. This is important.
+### response:
+{
+  "WorkflowModel": {
+    "start_node": {
+      "id": "S1",
+      "actor_label": "MPON",
+      "actor_id": "A1"
+    },
+    "end_node": {
+      "id": "E1",
+      "actor_label": "MPOO",
+      "actor_id": "A2"
+    },
+    "tasks": [
+      {
+        "id": "T1",
+        "label": "sends the dismissal",
+        "successor": "T2",
+        "predecessor": "S1",
+        "actor_label": "MPON",
+        "actor_id": "A1"
+      },
+      {
+        "id": "T2",
+        "label": "reviews dismissal",
+        "successor": "XS1",
+        "predecessor": "T1",
+        "actor_label": "MPOO",
+        "actor_id": "A2"
+      },
+      {
+        "id": "T3",
+        "label": "opposes the dismissal",
+        "successor": "XJ1",
+        "predecessor": "XS1",
+        "actor_label": "MPOO",
+        "actor_id": "A2"
+      },
+      {
+        "id": "T4",
+        "label": "confirms the dismissal",
+        "successor": "XJ1",
+        "predecessor": "XS1",
+        "actor_label": "MPOO",
+        "actor_id": "A2"
+      }
+    ],
+    "gateways": [
+      {
+        "type": "XOR-Split",
+        "id": "XS1",
+        "condition": "dismissal is invalid?",
+        "successor_true": "T3",
+        "successor_false": "T4",
+        "predecessor": "T2",
+        "actor_label": "MPOO",
+        "actor_id": "A2"
+      },
+      {
+        "type": "XOR-Join",
+        "id": "XJ1",
+        "predecessor_true": "T3",
+        "predecessor_false": "T4",
+        "successor": "E1",
+        "actor_label": "MPOO",
+        "actor_id": "A2"
+      }
+    ]
+  }
+}
+
+### instruction:

@@ -1,0 +1,1 @@
+In the context of business process management, you are tasked to assign activities to its performers.
