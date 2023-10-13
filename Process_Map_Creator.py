@@ -1,6 +1,6 @@
 from processpiper import ProcessMap, ActivityType, EventType, GatewayType
 
-## Deterministic try to create visualizable process diagram with processpiper (no AI/LLM involved)
+## Deterministic try to create a visualizable process diagram with processpiper (no AI/LLM involved)
 
 def generate_process_map(process_structure, path):
     process_structure = process_structure['WorkflowModel']
@@ -45,7 +45,7 @@ def generate_process_map(process_structure, path):
                         successor_element = tasks if gateway['successor_false'] in tasks else gateways
                         current_gateway.connect(successor_element[gateway['successor_false']])
                         
-                # else:  # XOR-Join
+                # else:  # XOR-Join -> outcommented for now since connections already happened in connect tasks and gateways
                     
                 #     # Connect from predecessor_true
                 #     if gateway['predecessor_true']:

@@ -1,9 +1,9 @@
-from Workflow_Model import WorkflowModel
-from Workflow_Model import Node
-from Workflow_Model import Task
+from WorkflowModel import WorkflowModel
+from WorkflowModel import Node
+from WorkflowModel import Task
 
 
-class Extended_WorkflowModel(WorkflowModel):
+class ExtendedWorkflowModel(WorkflowModel):
     def __init__(self, wf_model):
         self.__dict__ = wf_model.__dict__.copy()
 
