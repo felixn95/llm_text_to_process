@@ -6,7 +6,7 @@ The workflow extractions happen in three sequential steps (Activities -> Actors 
 
 The visualization (workflow -> model) is a deterministic approach using the process piper library to draw BPMN diagrams (https://github.com/csgoh/processpiper/). 
 
-![Approach](pic\overviewApproach.png)
+![Approach](pic/overviewApproach.png)
 
 After requirements are installed, the app can be started (location is the root folder):
 
