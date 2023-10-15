@@ -1,0 +1,51 @@
+Process Participant:
+A process participant is any individual or entity that participates in a business process. This could include individuals who initiate the process, those who respond to it, or those who are affected by it.
+Activity:
+An activity is a unit of work that can be performed by an individual or a group. It is a specific step in the process. One actor can perform one or more activties. If the actor was already assigned, please use the same id for assigning. 
+Please just answer in the JSON format {"Activities": [{"activity-label": "", "actor-label": "", "actor-id": ""}], ..}. Please do not add any other explainations or text, only provide the plain JSON. 
+
+Please note that named actors can be departments as well as employees of a department. The unique actor is still the department, no distinction is necessary. 
+
+### instruction:
+Process Model: 
+The Sales Department requests changes to the MPO.
+The MPO reviews the change request.
+Afterwards MPO confirmes the request.
+Then a member of the Sales Department performs the request tasks.
+
+The defined activities of this process model are:
+ {
+"activity-labels": [
+"requests changes to the MPO",
+"reviews the change request",
+"confirmes the request",
+"performs the request tasks"
+]}
+### response:
+{ 
+"Activities":
+[
+  {
+    "activity-label": "request changes to the MPO",
+    "actor-label": "The Sales Department",
+    "actor-id": "A1"
+  },
+  {
+    "activity-label": "reviews the change request",
+    "actor-label": "The MPO",
+    "actor-id": "A2"
+  },
+  {
+    "activity-label": "confirmes the request",
+    "actor-label": "The MPO",
+    "actor-id": "A2"
+  },
+  {
+    "activity-label": "performs the request tasks",
+    "actor-label": "The Sales Department",
+    "actor-id": "A1"
+  }
+]
+}
+### instruction:
+Process Model:

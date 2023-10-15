@@ -7,7 +7,7 @@ import re
 import os
 from dotenv import load_dotenv
 
-def extract_workflow(process_plaintext: str, activities: str) -> str:
+def extract_workflow_llama2(process_plaintext: str, activities: str) -> str:
     load_dotenv() # Load environment variables from .env file
     api_token = os.environ.get('REPLICATE_API_TOKEN')
     headers = {"Authorization": f"Token {api_token}", "Content-Type": "application/json"}

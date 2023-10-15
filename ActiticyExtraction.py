@@ -21,7 +21,7 @@ def is_valid_response(response):
         return False
 
 
-def extract_activities(process_plaintext: str) -> str:
+def extract_activities_llama2(process_plaintext: str) -> str:
     load_dotenv() # Load environment variables from .env file
     api_token = os.environ.get('REPLICATE_API_TOKEN')
     headers = {
@@ -84,3 +84,43 @@ def extract_activities(process_plaintext: str) -> str:
             time.sleep(2)  # Sleep for 2 seconds before polling again
         else:
             return f"Error: Unknown status {status}"
+        
+def extract_activities_openai(process_plaintext: str) -> str:
+    load_dotenv() # Load environment variables from .env file
+    api_token = os.environ.get('OPENAI_API_TOKEN') 
+    headers = {
+        "Authorization": f"Bearer {api_token}",
+        "Content-Type": "application/json"
+    }
+    url = "https://api.openai.com/v1/chat/completions"
+    
+    pre_prompt = PromptsReader.read_text_file(TextFiles.ACTIVITIES_PREPROMPT.value)
+    post_prompt = PromptsReader.read_text_file(TextFiles.ACTIVITIES_POSTPROMPT.value)
+    system_prompt = PromptsReader.read_text_file(TextFiles.ACTIVITIES_SYSTEMPROMPT.value)
+
+    print (f"{pre_prompt} {process_plaintext} {post_prompt}")
+
+    messages = [
+        {
+            "role": "system",
+            "content": system_prompt
+        },
+        {
+            "role": "user",
+            "content": f"{pre_prompt} {process_plaintext} {post_prompt}"
+        }
+    ]
+    
+    payload = {
+        "model": "gpt-3.5-turbo",
+        "messages": messages
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+    if response.status_code != 200:
+        return f"Error: {response.status_code}"
+    
+    assistant_reply = response.json()["choices"][0]["message"]["content"]
+    
+    return assistant_reply
+

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "T1",
+    "label": "places an order",
+    "actor_label": "A Customer",
+    "actor_id": "A1"
+  },
+  {
+    "id": "T2",
+    "label": "checks the payment of the order",
+    "actor_label": "The warehouse",
+    "actor_id": "A2"
+  },
+  {
+    "id": "T3",
+    "label": "ships the order",
+    "actor_label": "The warehouse",
+    "actor_id": "A2"
+  },
+  {
+    "id": "T4",
+    "label": "rejects the order",
+    "actor_label": "The warehouse",
+    "actor_id": "A2"
+  }
+]

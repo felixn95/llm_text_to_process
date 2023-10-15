@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
 
-def assign_actors(process_plaintext: str, activity_labels: str) -> str:
+def assign_actors_llama2(process_plaintext: str, activity_labels: str) -> str:
     load_dotenv() # Load environment variables from .env file
     api_token = os.environ.get('REPLICATE_API_TOKEN')
     headers = {
@@ -16,7 +16,7 @@ def assign_actors(process_plaintext: str, activity_labels: str) -> str:
     }
     url = "https://api.replicate.com/v1/predictions"
 
-    pre_prompt = PromptsReader.read_text_file(TextFiles.ACTORS_PREPROMPT.value)
+    pre_prompt = PromptsReader.read_text_file(TextFiles.ACTORS_PREPROMPT_EXP1.value)
     system_prompt = PromptsReader.read_text_file(TextFiles.ACTORS_SYSTEMPROMPT.value)
 
     # Prompts engineering
@@ -68,3 +68,42 @@ def assign_actors(process_plaintext: str, activity_labels: str) -> str:
             time.sleep(2)
         else:
             return f"Error: Unknown status {status}"
+
+def assign_actors_openai(process_plaintext: str, activity_labels: str) -> str:
+    load_dotenv() # Load environment variables from .env file
+    api_token = os.environ.get('OPENAI_API_TOKEN') 
+    headers = {
+        "Authorization": f"Bearer {api_token}",
+        "Content-Type": "application/json"
+    }
+    url = "https://api.openai.com/v1/chat/completions"
+    
+    pre_prompt = PromptsReader.read_text_file(TextFiles.ACTORS_PREPROMPT_EXP1.value)
+    system_prompt = PromptsReader.read_text_file(TextFiles.ACTORS_SYSTEMPROMPT.value)
+
+    full_prompt = f"{system_prompt} {pre_prompt} {process_plaintext} \n The defined activities of this process model are: {activity_labels} \n ### response:"
+    print(full_prompt)
+    messages = [
+        {
+            "role": "system",
+            "content": system_prompt
+        },
+        {
+            "role": "user",
+            "content": full_prompt
+        }
+    ]
+    
+    payload = {
+        "model": "gpt-3.5-turbo",
+        "messages": messages
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+    if response.status_code != 200:
+        return f"Error: {response.status_code}"
+    
+    assistant_reply = response.json()["choices"][0]["message"]["content"]
+    
+    return assistant_reply
+

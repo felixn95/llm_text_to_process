@@ -1,6 +1,6 @@
 import json
 
-# Helper class to store activity information, used to store the information during the request chains
+# Helper class for activity information, used to store the information during the request chains
 class Activity:
     def __init__(self, id, label, actor_label, actor_id):
         self.id = id

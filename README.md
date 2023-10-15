@@ -11,6 +11,7 @@ The visualization (workflow -> model) is a deterministic approach using the proc
 After requirements are installed, the app can be started (location is the root folder):
 
 ```
+pip install -r requirements.txt
 streamlit run streamlit.py
 ```
 

@@ -10,10 +10,12 @@ class TextFiles(Enum):
     ACTIVITIES_SYSTEMPROMPT = "prompts/activities_systemprompt.txt"
 
     ACTORS_PREPROMPT = "prompts/actors_preprompt.txt"
+    ACTORS_PREPROMPT_EXP1 = "prompts/actors_preprompt_exp1.txt"
     ACTORS_POSTPROMPT = "prompts/actors_postprompt.txt"
     ACTORS_SYSTEMPROMPT = "prompts/actors_systemprompt.txt"
 
     PROCESS_1 = "prompts/process_1.txt"
+    PROCESS_2 = "prompts/process_2.txt"
 
     act_json = "prompts/act_json.txt"
     workflow_example = "prompts/workflow_example.txt"

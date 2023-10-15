@@ -4,7 +4,7 @@ from processpiper import ProcessMap, ActivityType, EventType, GatewayType
 
 def generate_process_map(process_structure, path):
     process_structure = process_structure['WorkflowModel']
-    with ProcessMap("Text to Process Playground") as my_process_map:
+    with ProcessMap("Text to Process Playground", colour_theme="BLUEMOUNTAIN") as my_process_map:
         with my_process_map.add_pool("Company") as pool:
             
             # Create lanes for each unique actor
